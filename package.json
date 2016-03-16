@@ -71,6 +71,10 @@
     "rules": {
       "react/prop-types": "off",
       "react/no-unknown-property": "off",
+      "no-empty": 2,
+      "no-unused-vars": 1,
+      "max-len": [2, 120],
+      "max-params": [2, 3],
       "indent": [
         "error",
         2
