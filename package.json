@@ -1,7 +1,7 @@
 {
   "name": "react-webpack-starter",
   "version": "1.0.0",
-  "description": "starter template project for react, react-router, browserHistory, IndexRedirect, es6 babel webpack",
+  "description": "starter react template project with react-router, browserHistory, es6 babel webpack and livereload",
   "author": "Maksim Kostromin",
   "license": "ISC",
   "main": "webpack.config.js",
