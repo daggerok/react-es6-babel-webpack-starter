@@ -2,7 +2,7 @@ import './css'
 
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 import Home from './components/Home'
 import NotFound from './components/NotFound'
@@ -21,10 +21,9 @@ class App extends Component {
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <IndexRedirect to='home'/>
-      <Route path='*' component={Home}/>
+      <IndexRoute component={Home}/>
+      <Route status={404} path='*' component={NotFound}/>
     </Route>
-    <Route status={404} path='*' component={NotFound} />
   </Router>,
   document.getElementById('app')
 )

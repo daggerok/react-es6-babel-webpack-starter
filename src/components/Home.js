@@ -7,7 +7,7 @@ export default class Home extends Component {
       name: 'world'
     }
   }
-  
+
   render() {
     return (
       <div>
