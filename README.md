@@ -1,7 +1,7 @@
 react-webpack-starter [![build](https://travis-ci.org/daggerok/react-webpack-starter.svg?branch=master)](https://travis-ci.org/daggerok/react-webpack-starter)
 =====================
 
-starter react template project with react-router, browserHistory, IndexRedirect, es6 babel and webpack
+starter react template project with react-router, browserHistory, es6 babel webpack and livereload
 
 build
 
