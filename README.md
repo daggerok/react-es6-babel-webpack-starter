@@ -18,7 +18,7 @@ npm run dev
 
 force stop
 
-sh```
+```sh
 killall node # after control+c
 ```
 
