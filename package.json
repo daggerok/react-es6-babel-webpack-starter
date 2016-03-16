@@ -4,7 +4,7 @@
   "description": "starter template project for react, react-router, browserHistory, IndexRedirect, es6 babel webpack",
   "main": "webpack.config.js",
   "scripts": {
-    "prewebpack": "npm i",
+    "prewebpack": "npm i --no-optional",
     "webpack": "webpack",
     "test": "webpack -w",
     "dev": "webpack-dev-server --content base ./",
