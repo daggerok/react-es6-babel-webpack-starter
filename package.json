@@ -28,8 +28,11 @@
     "para:3": "echo 'parallel task 3'",
     "para": "npm-run-all --parallel para:*",
     "stop": "killall node &",
-    "precommit": "npm test"
+    "precommit": "npm run lint"
   },
+  "pre-push": [
+    "test"
+  ],
   "local-web-server": {
     "directory": "./",
     "port": 3000,
@@ -145,6 +148,7 @@
     "livereload": "0.4.1",
     "local-web-server": "1.2.1",
     "npm-run-all": "1.5.3",
+    "pre-push": "0.1.1",
     "style-loader": "0.13.0",
     "stylelint": "5.0.1",
     "url-loader": "0.5.7",
