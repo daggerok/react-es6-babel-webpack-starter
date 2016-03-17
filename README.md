@@ -13,13 +13,13 @@ open index.html
 development
 
 ```shell
-npm run dev
+npm start
 ```
 
 force stop
 
 ```sh
-killall node # after control+c
+npm stop # after control+c
 ```
 
 links

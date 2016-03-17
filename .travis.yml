@@ -1,6 +1,8 @@
 language: node_js
 node_js: 5
-script: NODE_ENV="production" npm run build
+script:
+  - NODE_ENV="production" npm test
+  - npm run build
 cache:
   directories:
     - node_modules

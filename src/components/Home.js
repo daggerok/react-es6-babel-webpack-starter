@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 export default class Home extends Component {
   constructor() {
     super()
     this.state = {
-      name: 'world'
+      name: 'world',
     }
   }
 
