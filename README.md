@@ -1,18 +1,18 @@
 react-es6-babel-webpack-starter [![build](https://travis-ci.org/daggerok/react-es6-babel-webpack-starter.svg?branch=master)](https://travis-ci.org/daggerok/react-es6-babel-webpack-starter)
-=====================
+===============================
 
 starter react template project with react-router, browserHistory, es6 babel webpack and livereload
 
 build
 
-```shell
+```sh
 npm run serve
-open index.html
+open http://localhost:3000
 ```
 
 development
 
-```shell
+```sh
 npm start
 ```
 
