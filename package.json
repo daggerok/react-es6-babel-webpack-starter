@@ -12,7 +12,7 @@
     "webpack:prod": "npm run webpack -- -p",
     "webpack:watch": "npm run webpack -- -w",
     "eslint": "eslint --debug ./src",
-    "lintfix": "eslint --debug src --fix",
+    "lintfix": "npm run eslint -- --fix",
     "webpack-dev-server": "webpack-dev-server --content base ./",
     "dev:livereload": "npm-run-all --parallel livereload webpack-dev-server",
     "ino": "npm i --no-optional",
@@ -27,7 +27,8 @@
     "para:2": "echo 'parallel task 2'",
     "para:3": "echo 'parallel task 3'",
     "para": "npm-run-all --parallel para:*",
-    "stop": "killall node &"
+    "stop": "killall node &",
+    "precommit": "npm test"
   },
   "local-web-server": {
     "directory": "./",
@@ -140,6 +141,7 @@
     "eslint-config-xo": "0.12.0",
     "eslint-plugin-react": "4.2.3",
     "file-loader": "0.8.5",
+    "husky": "0.11.3",
     "livereload": "0.4.1",
     "local-web-server": "1.2.1",
     "npm-run-all": "1.5.3",
