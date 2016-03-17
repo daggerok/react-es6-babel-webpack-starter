@@ -23,6 +23,10 @@
     "dev": "npm-run-all ino dev:livereload",
     "start": "npm-run-all --parallel watch dev",
     "test": "npm-run-all lint webpack",
+    "para:1": "echo 'parallel task 1'",
+    "para:2": "echo 'parallel task 2'",
+    "para:3": "echo 'parallel task 3'",
+    "para": "npm-run-all --parallel para:*",
     "stop": "killall node &"
   },
   "local-web-server": {
