@@ -71,26 +71,14 @@
     "rules": {
       "react/prop-types": "off",
       "react/no-unknown-property": "off",
-      "no-empty": 2,
-      "no-unused-vars": 1,
-      "max-len": [2, 120],
-      "max-params": [2, 3],
-      "indent": [
-        "error",
-        2
-      ],
-      "linebreak-style": [
-        "error",
-        "unix"
-      ],
-      "quotes": [
-        "error",
-        "single"
-      ],
-      "semi": [
-        "error",
-        "never"
-      ]
+      "no-empty": "error",
+      "no-unused-vars": "warn",
+      "max-len": ["error", 120],
+      "max-params": ["error", 3],
+      "indent": ["error", 2],
+      "linebreak-style": ["error","unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "never"]
     }
   },
   "dependencies": {
