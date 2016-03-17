@@ -60,7 +60,8 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "xo"
     ],
     "parserOptions": {
       "sourceType": "module",
@@ -69,16 +70,35 @@
       }
     },
     "rules": {
+      "jsx-quotes": "warn",
       "react/prop-types": "warn",
       "react/no-unknown-property": "off",
       "no-empty": "error",
       "no-unused-vars": "warn",
-      "max-len": ["error", 120],
-      "max-params": ["error", 3],
-      "indent": ["error", 2],
-      "linebreak-style": ["error","unix"],
-      "quotes": ["error", "single"],
-      "semi": ["error", "never"]
+      "max-len": [
+        "error",
+        120
+      ],
+      "max-params": [
+        "error",
+        3
+      ],
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
     }
   },
   "dependencies": {
@@ -100,6 +120,7 @@
     "css-loader": "0.23.1",
     "editorconfig": "0.13.2",
     "eslint": "2.4.0",
+    "eslint-config-xo": "0.12.0",
     "eslint-plugin-react": "4.2.3",
     "file-loader": "0.8.5",
     "livereload": "0.4.1",
