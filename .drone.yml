@@ -1,0 +1,9 @@
+build:
+  image: node:latest
+  commands:
+    - npm i
+    - NODE_ENV="production" npm test
+    - npm run build
+cache:
+  mount:
+    - node_modules
