@@ -1,9 +1,10 @@
-const debug = process.env.NODE_ENV !== 'production',
-webpack = require('webpack')
+const
+webpack = require('webpack'),
+ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? 'cheap-inline-module-source-map' : null,
+  devtool: 'cheap-inline-module-source-map',
   entry: './src/main.js',
   output: {
     path: __dirname + '/dist/',
@@ -20,7 +21,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }, {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader'
@@ -36,14 +37,15 @@ module.exports = {
       }
     ]
   },
-  plugins: debug ? [] : [
+  plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: false,
-      sourcemap: false,
+      sourcemap: true,
       compress: { warnings: false }
-    })
+    }),
+    new ExtractTextPlugin('bundle.css')
   ],
   devServer: {
     hot: true,

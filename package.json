@@ -105,15 +105,15 @@
         3
       ],
       "indent": [
-        "error",
+        "warn",
         2
       ],
       "linebreak-style": [
-        "error",
+        "warn",
         "unix"
       ],
       "quotes": [
-        "error",
+        "warn",
         "single"
       ],
       "semi": [
@@ -144,6 +144,7 @@
     "eslint-config-stylelint": "1.0.0",
     "eslint-config-xo": "0.12.0",
     "eslint-plugin-react": "4.2.3",
+    "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
     "husky": "0.11.3",
     "livereload": "0.4.1",
