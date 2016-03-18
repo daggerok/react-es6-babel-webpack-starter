@@ -1,6 +1,8 @@
 const
 webpack = require('webpack'),
-ExtractTextPlugin = require('extract-text-webpack-plugin')
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
+autoprefixer = require('autoprefixer'),
+cssnano = require('cssnano')
 
 module.exports = {
   context: __dirname,
@@ -21,7 +23,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?importloader=1', 'postcss')
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader'
@@ -47,6 +49,12 @@ module.exports = {
     }),
     new ExtractTextPlugin('bundle.css')
   ],
+  postcss: function() {
+    return [
+      autoprefixer,
+      cssnano
+    ]
+  },
   devServer: {
     hot: true,
     quiet: false,
