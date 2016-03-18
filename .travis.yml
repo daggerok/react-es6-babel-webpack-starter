@@ -1,6 +1,7 @@
 language: node_js
 node_js: 5
 script:
+  - npm i
   - NODE_ENV="production" npm test
   - npm run build
 cache:

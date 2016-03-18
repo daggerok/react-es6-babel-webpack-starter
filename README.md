@@ -3,6 +3,10 @@ react-es6-babel-webpack-starter [![build](https://travis-ci.org/daggerok/react-e
 
 starter react template project with react-router, browserHistory, es6 babel webpack and livereload
 
+```sh
+npm i
+```
+
 build
 
 ```sh
