@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-export default class NotFound extends Component {
+export class NotFound extends Component {
   render() {
     return (
       <div>
@@ -11,6 +11,6 @@ export default class NotFound extends Component {
           <button type="button" class="btn btn-default">Go Home</button>
         </Link>
       </div>
-    )
+    );
   }
 }

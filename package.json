@@ -29,7 +29,7 @@
     "para": "npm-run-all --parallel para:*",
     "stop": "killall node &",
     "deploy:static": "surge -p dist/",
-    "precommit": "npm run lint"
+    "postcommit": "npm run lint"
   },
   "pre-push": [
     "test"
@@ -94,6 +94,8 @@
       "react/prop-types": "warn",
       "react/no-unknown-property": "off",
       "no-empty": "error",
+      "comma-dangle": "off",
+      "semi": "off",
       "no-unused-vars": "warn",
       "object-curly-spacing": "warn",
       "max-len": [
@@ -115,10 +117,6 @@
       "quotes": [
         "warn",
         "single"
-      ],
-      "semi": [
-        "error",
-        "never"
       ]
     }
   },

@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Home extends Component {
+export class Home extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      name: 'world',
+      name: 'world'
     }
   }
 
@@ -13,6 +13,6 @@ export default class Home extends Component {
       <div>
         hello, {this.state.name}!
       </div>
-    )
+    );
   }
 }
