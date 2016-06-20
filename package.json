@@ -32,7 +32,7 @@
     "postcommit": "npm run lint"
   },
   "pre-push": [
-    "test"
+    "lint"
   ],
   "local-web-server": {
     "directory": "./",
@@ -122,9 +122,9 @@
   },
   "dependencies": {
     "bootstrap": "3.3.6",
-    "react": "0.14.7",
-    "react-dom": "0.14.7",
-    "react-router": "2.0.1"
+    "react": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-router": "2.4.1"
   },
   "devDependencies": {
     "autoprefixer": "6.3.3",

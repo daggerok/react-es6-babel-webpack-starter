@@ -5,12 +5,15 @@ autoprefixer = require('autoprefixer'),
 cssnano = require('cssnano')
 
 module.exports = {
-  context: __dirname,
-  devtool: 'cheap-inline-module-source-map',
-  entry: './src/main.js',
+  devtool: 'cheap-module-source-map',
+  entry: {
+    app: './src/main.js'
+  },
   output: {
-    path: __dirname + '/dist/',
-    filename: 'bundle.js'
+    path: './dist/',
+    filename: '[name].js',
+    // save maps outside build folder
+    sourceMapFilename: 'maps/[file].map'
   },
   resolve: {
     extensions: ['', '.json', '.js', '.jsx']
@@ -47,7 +50,7 @@ module.exports = {
       sourcemap: true,
       compress: { warnings: false }
     }),
-    new ExtractTextPlugin('bundle.css')
+    new ExtractTextPlugin('app.css')
   ],
   postcss: function() {
     return [
