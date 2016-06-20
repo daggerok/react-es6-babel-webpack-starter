@@ -28,11 +28,10 @@
     "para:3": "echo 'parallel task 3'",
     "para": "npm-run-all --parallel para:*",
     "stop": "killall node &",
-    "deploy:static": "surge -p dist/",
-    "postcommit": "npm run lint"
+    "deploy:static": "surge -p dist/"
   },
   "pre-push": [
-    "lint"
+    "test"
   ],
   "local-web-server": {
     "directory": "./",
