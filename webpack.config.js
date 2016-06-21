@@ -1,13 +1,14 @@
 const
 webpack = require('webpack'),
 ExtractTextPlugin = require('extract-text-webpack-plugin'),
+CopyWebpackPlugin = require('copy-webpack-plugin'),
 autoprefixer = require('autoprefixer'),
-cssnano = require('cssnano')
+cssnano = require('cssnano');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
-    app: './src/main.js'
+    app: './src/main.jsx'
   },
   output: {
     path: './dist/',
@@ -40,6 +41,11 @@ module.exports = {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
+    ],
+
+    preLoaders: [
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      {test: /\.js$/, loader: 'source-map-loader'}
     ]
   },
   plugins: [
@@ -50,7 +56,13 @@ module.exports = {
       sourcemap: true,
       compress: { warnings: false }
     }),
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('app.css'),
+    new webpack.DefinePlugin({
+      // Lots of library source code (like React) are based on process.env.NODE_ENV
+      // (all development related code is wrapped inside a conditional that can be dropped if equal to "production"
+      // this way you get your own react.min.js build)
+      'process.env': { 'NODE_ENV': JSON.stringify('production') }
+    })
   ],
   postcss: function() {
     return [
@@ -58,12 +70,20 @@ module.exports = {
       cssnano
     ]
   },
+  node:{
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   devServer: {
-    hot: true,
-    quiet: false,
-    noInfo: false,
-    lazy: true,
+    watchDelay: 100,
+    progress: true,
+    inline: true,
     port: 3000,
-    historyApiFallback: true
+    proxy: {
+      '/author': 'http://localhost:8080',
+      '/message': 'http://localhost:8080'
+    }
   }
-}
+};

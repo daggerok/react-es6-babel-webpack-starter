@@ -18,6 +18,7 @@ development
 
 ```sh
 npm start
+npm run dev
 ```
 
 force stop
