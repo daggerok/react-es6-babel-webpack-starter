@@ -1,9 +1,10 @@
 const
-webpack = require('webpack'),
-ExtractTextPlugin = require('extract-text-webpack-plugin'),
-CopyWebpackPlugin = require('copy-webpack-plugin'),
-autoprefixer = require('autoprefixer'),
-cssnano = require('cssnano');
+  webpack = require('webpack'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  CopyWebpackPlugin = require('copy-webpack-plugin'),
+  autoprefixer = require('autoprefixer'),
+  cssnano = require('cssnano');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -12,7 +13,7 @@ module.exports = {
   },
   output: {
     path: './dist/',
-    filename: '[name].js',
+    filename: '/[name].js',
     // save maps outside build folder
     sourceMapFilename: 'maps/[file].map'
   },
@@ -49,6 +50,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'react-es6-babel-webpack-starter',
+      template: './src/assets/index.html'
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -56,7 +61,7 @@ module.exports = {
       sourcemap: true,
       compress: { warnings: false }
     }),
-    new ExtractTextPlugin('app.css'),
+    new ExtractTextPlugin('/app.css'),
     new webpack.DefinePlugin({
       // Lots of library source code (like React) are based on process.env.NODE_ENV
       // (all development related code is wrapped inside a conditional that can be dropped if equal to "production"
@@ -77,9 +82,10 @@ module.exports = {
     tls: 'empty'
   },
   devServer: {
-    watchDelay: 100,
-    progress: true,
     inline: true,
+    options: {
+      watchOptions: 100
+    },
     port: 3000,
     proxy: {
       '/author': 'http://localhost:8080',

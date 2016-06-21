@@ -1,32 +1,30 @@
 {
   "name": "react-es6-babel-webpack-starter",
-  "version": "1.0.0",
-  "description": "starter react template project with react-router, browserHistory, es6 babel webpack and livereload",
+  "description": "react, react-router boilerplate with webpack",
   "author": "Maksim Kostromin",
+  "version": "1.0.0",
   "license": "ISC",
   "main": "webpack.config.js",
   "scripts": {
     "ws": "ws",
     "webpack": "webpack",
-    "livereload": "livereload",
-    "build": "npm run webpack -- -p",
-    "watch": "npm run webpack -- -w",
-    "wp": "webpack-dev-server --content-base ./ -w",
-    "dev": "npm-run-all --parallel livereload wp watch",
-    "reload": "npm-run-all --parallel livereload ws watch",
-    "start": "npm-run-all webpack reload",
+    "build": "webpack -p",
     "serve": "npm-run-all build ws",
+    "watch": "webpack -w",
+    "livereload": "livereload -d",
+    "live": "npm-run-all --parallel ws livereload watch",
+    "dev": "npm-run-all webpack live",
+    "start": "webpack-dev-server --content-base ./ -w",
     "eslint": "eslint --debug ./src",
     "lintfix": "npm run eslint -- --fix",
-    "test": "npm-run-all eslint webpack",
-    "stop": "killall node &",
+    "test": "npm run eslint",
     "deploy:static": "surge -p dist/"
   },
   "pre-push": [
     "test"
   ],
   "local-web-server": {
-    "directory": "./",
+    "directory": "./dist/",
     "port": 3000,
     "forbid": [
       "*.json",
@@ -41,7 +39,7 @@
   "livereload": {
     "exclusions": [
       "*.git",
-      "node_modules/**/*.*",
+      "node_modules/",
       ".gitignore",
       "*.json",
       "*.md"
@@ -138,11 +136,12 @@
     "eslint-plugin-react": "5.2.2",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
+    "html-webpack-plugin": "2.21.0",
     "husky": "0.11.4",
     "livereload": "0.4.1",
     "local-web-server": "1.2.6",
     "npm-run-all": "2.2.0",
-    "postcss-loader": "0.8.2",
+    "postcss-loader": "0.9.1",
     "pre-push": "0.1.1",
     "source-map-loader": "0.1.5",
     "style-loader": "0.13.1",
