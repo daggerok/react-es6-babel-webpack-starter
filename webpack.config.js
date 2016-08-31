@@ -6,6 +6,10 @@ const
   autoprefixer = require('autoprefixer'),
   cssnano = require('cssnano');
 
+const Path = require('path');
+const include   = [Path.resolve(process.cwd(), 'src')];
+const bsInclude = [Path.resolve(process.cwd(), './node_modules/bootstrap/dist')];
+
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
@@ -18,28 +22,43 @@ module.exports = {
     sourceMapFilename: 'maps/[file].map'
   },
   resolve: {
-    extensions: ['', '.json', '.js', '.jsx']
+    extensions: ['', '.json', '.js', '.jsx'],
+    modulesDirectories: ['node_modules']
   },
   module: {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/
+        include,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react', 'stage-0'],
+          plugins: [
+            'react-html-attrs',
+            'add-module-exports',
+            'transform-class-properties',
+            'transform-decorators-legacy'
+          ]
+        }
       }, {
         test: /\.css$/,
+        include: bsInclude,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?importloader=1', 'postcss')
       }, {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        include: bsInclude,
         loader: 'file-loader'
       }, {
         test: /\.(woff|woff2)$/,
+        include: bsInclude,
         loader:'url?prefix=font/&limit=5000'
       }, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        include: bsInclude,
         loader: 'url?limit=10000&mimetype=application/octet-stream'
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        include: bsInclude,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ],
