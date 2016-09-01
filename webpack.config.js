@@ -69,6 +69,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './api', to: './dist/api' }
+    ]),
     new HtmlWebpackPlugin({
       title: 'react-es6-babel-webpack-starter',
       template: './src/assets/index.html'
