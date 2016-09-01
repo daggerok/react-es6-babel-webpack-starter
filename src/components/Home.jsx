@@ -12,7 +12,7 @@ export class Home extends Component {
   }
 
   fetchUsers() {
-    $.get('./api/data.json')
+    this.request = $.get('./api/data.json')
       .then(result => {
         this.setState(Object.assign({}, this.state, {
           users: result
@@ -22,6 +22,10 @@ export class Home extends Component {
 
   componentDidMount() {
     this.fetchUsers()
+  }
+
+  componentWillUnmount() {
+    this.request.abort();
   }
 
   render() {
